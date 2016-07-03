@@ -1,0 +1,106 @@
+<div>
+    <h3>{{'st.testManaging' | translate}}</h3>
+
+    <div class="col-md-offset-10">
+        <button type="button" class="btn btn-default" ng-click="showPreview()">{{'st.preview' | translate}}</button>
+    </div>
+    <div class="col-md-4">
+        <h4>{{'st.questionType' | translate}}</h4>
+
+        <div class="grid">
+            <button class="btn btn-default" ng-click="addRadioQ()"><span class="glyphicon glyphicon-record"></span>
+            </button>
+            <button class="btn btn-default" ng-click="addCheckQ()"><span class="glyphicon glyphicon-check"></span>
+            </button>
+            <button class="btn btn-default" ng-click="addTextQ()">T</button>
+            <button class="btn btn-default" ng-click="addNumberQ()">N</span></button>
+        </div>
+        <br/>
+
+        <div>
+            <button class="btn btn-default">{{'st.importQuestions' | translate}}</button>
+        </div>
+        <br/>
+
+        <div class="form-group has-feedback">
+            <input type="text" class="form-control" ng-model="testSearch" placeholder="{{'st.search' | translate}}"/>
+            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        </div>
+
+        <div class="list">
+            <div ng-repeat="quiz in quizs | filter : testSearch" ng-click="showTest(quiz)">
+                <div class="col-md-10">{{quiz.name}}</div>
+                <div class="col-md-1"><span class="glyphicon glyphicon-eye-open"></span></div>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-offset-4">
+        <br/>
+
+        <div class="col-md-11">
+            <input type="text" ng-model="quiz.name" class="form-control titleInput"
+                   placeholder="{{'st.testName' | translate}}"/>
+            <br/>
+            <input type="text" ng-model="quiz.subject" class="form-control "
+                   placeholder="{{'st.subject' | translate}}"/>
+            <br/>
+            <textarea ng-model="quiz.description" class="form-control"
+                      placeholder="{{'st.testDescription' | translate}}"/>
+
+            <br/>
+
+            <div ng-repeat="question in questionAnswers" class="list-items col-md-12">
+                <div class="col-md-10">
+                    <div class="col-md-10">
+                        <strong>{{$index + 1}}. {{ question.question.name }}</strong>
+                    </div>
+                </div>
+                <br/>
+
+                <div ng-show="question.question.type == 'ONE_ANSWER'">
+                    <div class="list-item">
+
+                        <div class="col-md-11" ng-repeat="answer in question.question.answers">
+                            <div class="col-md-1">
+                                <input type="radio" ng-model="question.question.correctAnswer" ng-value="answer"/>
+                            </div>
+                            <div class="col-md-9">
+                                {{answer.name}}
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                </div>
+                <div ng-show="question.question.type == 'MULTIPLE'">
+                    <div class="list-item">
+
+                        <div class="col-md-11" ng-repeat="answer in question.question.answers">
+                            <div class="col-md-1">
+                                <input type="checkbox" ng-model="question.question.correctAnswer" ng-value="answer"/>
+                            </div>
+                            {{answer.name}}
+                        </div>
+                    </div>
+                </div>
+                <br/>
+
+                <div>
+                    <button class="btn btn-default" ng-click="removeQuestion($index)">{{'st.remove' | translate}}
+                    </button>
+                    <button class="btn btn-default" ng-click="setAnswer(question)">{{'st.setAnswer' | translate}}
+                    </button>
+                </div>
+            </div>
+            <div ng-show="question.question.type == 'SHORT_ANSWER'"><input type="text" class="form-control"/>
+            </div>
+            <div ng-show="question.question.type == 'NUMBER'"><input type="number" class="form-control"></div>
+            <br/>
+            <hr>
+        </div>
+        <button ng-click="saveTest()" type="submit" class="btn btn-primary">{{'st.save' | translate}}</button>
+    </div>
+
+</div>
+</div>

@@ -1,0 +1,43 @@
+<div class="modal-header">
+    <h1>HEADER</h1>
+</div>
+<div class="modal-body">
+    <p><strong>{{ question.question.name }}</strong></p>
+
+    <div ng-show="question.question.type == 'ONE_ANSWER'">
+        <div class="list-item">
+            <div class="col-md-11" ng-repeat="answer in question.question.answers">
+                <div class="col-md-1">
+                    <input type="radio" ng-model="question.questionAnswer" ng-value="answer"/>
+                </div>
+                <div class="col-md-9">
+                    {{answer.name}}
+                </div>
+            </div>
+        </div>
+        <br/>
+    </div>
+    <div ng-show="question.question.type == 'MULTIPLE'">
+        <div class="list-item">
+
+            <div class="col-md-11" ng-repeat="answer in question.question.answers">
+                <div class="col-md-1">
+                    <input type="checkbox" ng-model="answer.correct" ng-value="answer"/>
+                </div>
+                <div class="col-md-9">
+                    {{answer.name}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="question.question.type == 'SHORT_ANSWER'">
+        <textarea type="text" class="form-control" ng-model="question.questionAnswer"/>
+    </div>
+    <div ng-show="question.question.type == 'NUMBER'">
+        <input type="number" class="form-control" ng-model="question.questionAnswer"/>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" ng-click="save()" ng-show="edit">{{'st.save' | translate}}</button>
+    <button class="btn btn-primary" ng-click="close()">{{'st.cancel' | translate}}</button>
+</div>

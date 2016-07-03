@@ -1,0 +1,44 @@
+<div class="modal-header">
+    <h2 ng-show="!edit">{{ 'st.addUser' | translate }}</h2>
+
+    <h2 ng-show="edit">{{ 'st.editUser' | translate }}</h2>
+</div>
+<div class="modal-body">
+    <div>
+        <form name="userForm" class="form-horizontal">
+
+            <div class="form-group">
+                <div class="col-md-4"><label for="lastName">{{'st.lastName' | translate}}</label></div>
+                <div class="col-md-5">
+                    <input id="lastName" class="form-control" name="lastName" ng-model="user.lastName" type="text"
+                           required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4"><label for="firstName">{{'st.firstName' | translate}}</label></div>
+                <div class="col-md-5">
+                    <input id="firstName" class="form-control" name="firstName" ng-model="user.firstName" type="text"
+                           required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4"><label for="email">{{'st.email' | translate}}</label></div>
+                <div class="col-md-5">
+                    <input id="email" class="form-control" name="email" ng-model="user.email" type="email" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4"><label for="login">{{'st.login' | translate}}</label></div>
+                <div class="col-md-5">
+                    <input id="login" class="form-control" name="indexNumber" ng-model="user.login"
+                           type="text"
+                           required/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" ng-click="save()" ng-disabled="userForm.$invalid">{{'st.save' | translate}}</button>
+    <button class="btn btn-primary" ng-click="close()">{{'st.cancel' | translate}}</button>
+</div>

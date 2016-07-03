@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <h1>HEADER</h1>
+</div>
+<div class="modal-body groupModal">
+    <div class="form-group">
+        <h3>{{group.name}}</h3>
+    </div>
+    <br />
+    <br />
+    <div>
+        <div class="col-md-6 pre-scrollable">
+            <div ng-repeat="quiz in quizs">
+                <div class="col-md-8">{{quiz.name}}</div>
+                <div class="col-md-3">
+                    <button class="btn btn-default" ng-click="addTest($index, quiz)">
+                        <span class="glyphicon glyphicon-plus"/>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-6 pre-scrollable">
+        <div ng-repeat="quiz in testsToAssign">
+            <div class="col-md-8">{{quiz.name}}</div>
+            <div class="col-md-3">
+                <button class="btn btn-default" ng-click="removeTest($index, quiz)">
+                    <span class="glyphicon glyphicon-remove"/>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" ng-click="save()">{{'st.save' | translate}}</button>
+    <button class="btn btn-primary" ng-click="close()">{{'st.cancel' | translate}}</button>
+</div>

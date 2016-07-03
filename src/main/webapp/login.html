@@ -1,0 +1,76 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org" >
+<head>
+    <base ui-sref="/">
+    <link rel="stylesheet" href="app/libs/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
+    <link rel="stylesheet" href="app/libs/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="app/libs/angular-xeditable/dist/css/xeditable.css">
+    <link rel="stylesheet" href="app/css/custom.css">
+</head>
+
+<body >
+<div id="page-wrapper"  ng-controller="RegisterCtrl">
+    <div class="alert-container" ng-app="register">
+        <uib-alert class="alert-frame" ng-repeat="alert in alertList"
+                   type="{{alert.type}}" close="alertService.closeAlert($index)">{{alert.msg}} {{alert.type}}
+        </uib-alert>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <form class="form-horizontal" name="f" th:action="@{/login}" method="post">
+                <br>
+                <br>
+                <div class="col-md-4     col-md-offset-4 well">
+                    <div class="form-group">
+                        <h1 class="col-lg-3">Login</h1>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label col-md-3" for="username">Login</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="username" id="username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label col-md-3" for="password">Password</label>
+                        <div class="col-md-9">
+                            <input type="password" class="form-control" name="password" id="password">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-md-9 col-md-offset-3">
+                            <button class="btn btn-success col-lg-6" type="submit" class="btn">Login</button>
+                            <input class="btn btn-primary col-lg-5 col-lg-offset-1"
+                                   value="Register" ng-click="register()" type="button"/>
+
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="app/libs/jquery/dist/jquery.js"></script>
+<script src="app/libs/node_modules/angular/angular.js"></script>
+<script src="app/libs/angular-resource/angular-resource.js"></script>
+<script src="app/libs/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="app/libs/bootstrap/js/dropdown.js"></script>
+<script src="app/libs/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+<script src="app/libs/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+<script src="app/libs/node_modules/underscore/underscore.js"></script>
+<script src="app/libs/node_modules/angular-translate/dist/angular-translate.js"></script>
+<script src="app/libs/node_modules/angular-translate-loader-url/angular-translate-loader-url.js"></script>
+<!-- bootstrap -->
+<script src="app/libs/bootstrap/dist/js/bootstrap.js"></script>
+
+<script src="app/components/common/alert.js"></script>
+<script src="app/components/services/userSrv.js"></script>
+
+<script src="app/components/modal/register/register.js"></script>
+
+<script src="app/partials/register/register.js"></script>
+<script src="app/app.js"></script>
+</body>
+</html>

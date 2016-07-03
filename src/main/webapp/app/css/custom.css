@@ -1,0 +1,155 @@
+.footer {
+    background-color: #233140;
+    color: #fff;
+    padding: 25px;
+}
+
+#wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+#footer {
+    margin-top: 10%;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+
+html, body {
+    height: 100%;
+}
+
+#header {
+    color: #fff;
+    background-color: #233140;
+    border-radius: 0px;
+}
+
+.view {
+    /*overflow: hidden;*/
+    margin-left: -2px;
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 5%;
+}
+
+.layout-centered {
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.left-menu {
+    width: 30%;
+}
+
+.data {
+    width: 100%;
+    display: inline;
+}
+
+.titleInput {
+    height: 70px;
+    font-size: 19pt;
+}
+
+.list-items {
+    display: inline-block;
+    background-color: #e8e8e8;
+    padding-bottom: 10px;
+}
+
+.list-item {
+    display: inline-block;
+    padding-bottom: 7px;
+}
+
+.alert-frame.ng-enter {
+    -webkit-animation: fadeIn 1s;
+    -moz-animation: fadeIn 1s;
+    -ms-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+.alert-frame.ng-leave {
+    -webkit-animation: fadeOut 1s;
+    -moz-animation: fadeOut 1s;
+    -ms-animation: fadeOut 1s;
+    animation: fadeOut 1s;
+}
+
+.alert {
+    width: 350px;
+    margin-left: -175px;
+    text-align: center;
+}
+
+.alert-container {
+    position: fixed;
+    z-index: 2000;
+    left: 50%;
+}
+
+.groupModal {
+    overflow: auto;
+}
+
+.has-error {
+    border-color: red;
+}
+
+.ng-invalid.ng-touched {
+    border-color: red;
+}
+
+label {
+    /* Other styling.. */
+    text-align: right;
+    clear: both;
+    float:left;
+    margin-right:15px;
+}
+
+.modal-body{
+    padding: 30px;
+}
+
+.form-control{
+    height: 30px;
+    padding: 4px 13px;
+    border-radius: 3px;
+}
+
+.btn{
+    height: 30px;
+    min-width: 100px;
+    border-radius: 3px;
+    padding: 4px 12px;
+}
+
+.app-modal-window .modal-dialog {
+    width: 500px;
+}
+
+.btn-add{
+    float: right;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.panel.col-md-5{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.huge{
+    font-size:40px;
+    float: right;
+}
+
+.selected{
+    background-color: #46b8da;
+}

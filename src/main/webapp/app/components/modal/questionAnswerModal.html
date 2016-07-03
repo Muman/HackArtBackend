@@ -1,0 +1,69 @@
+<div class="modal-header">
+    <h1>HEADER</h1>
+</div>
+<div class="modal-body">
+    <div class="col-md-10">
+        <div class="col-md-10">
+            <input type="text" class="form-control" ng-model="questionName"
+                   placeholder="{{'st.questionName' | translate}}">
+        </div>
+    </div>
+    <br/>
+
+    <div ng-show="questionType == 'ONE_ANSWER'">
+        <div class="list-item">
+
+            <div class="col-md-11" ng-repeat="answer in answers">
+                <div class="col-md-1">
+                    <input type="radio" disabled="true"/>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" ng-model="answer.name" class="form-control col-md-9"/>
+                </div>
+                <div class="col-md-1">
+                    <a href="" ng-click="removeAnswer($index)"><span class="glyphicon glyphicon-remove"
+                                                                     aria-hidden="true"
+                                                                     ng-hide="!answers.length"></span></a>
+                </div>
+                <div class="col-md-1">
+                    <a href="" ng-click="addAnswer(question)"><span class="glyphicon glyphicon-plus"
+                                                                    aria-hidden="true"></span></a>
+                </div>
+            </div>
+        </div>
+        <br/>
+    </div>
+    <div ng-show="questionType == 'MULTIPLE'">
+        <div class="list-item">
+
+            <div class="col-md-11" ng-repeat="answer in answers">
+                <div class="col-md-1">
+                    <input type="checkbox" disabled="true"/>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" ng-model="answer.name" class="form-control col-md-9"/>
+                </div>
+                <div class="col-md-1">
+                    <a href="" ng-click="removeAnswer($index)"><span class="glyphicon glyphicon-remove"
+                                                                     aria-hidden="true"
+                                                                     ng-hide="!answers.length"></span></a>
+                </div>
+                <div class="col-md-1">
+                    <a href="" ng-click="addAnswer(question)"><span class="glyphicon glyphicon-plus"
+                                                                    aria-hidden="true"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="questionType == 'SHORT_ANSWER'">
+        <textarea type="text" class="form-control"/>
+    </div>
+    <div ng-show="questionType == 'NUMBER'">
+        <input type="number" class="form-control">
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" ng-click="save()">{{'st.save' | translate}}</button>
+    <button class="btn btn-primary" ng-click="close()">{{'st.cancel' | translate}}</button>
+</div>

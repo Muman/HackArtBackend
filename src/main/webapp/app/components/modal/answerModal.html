@@ -1,0 +1,15 @@
+<div class="modal-header">
+    <h1>HEADER</h1>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+        <label class="col-md-3" for="name">{{'st.answerName' | translate}}</label>
+
+        <div class="col-md-6"><textarea id="name"
+                name="content" ng-model="answer.name" class="form-control" type="text"/></div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" ng-click="save(answer)">{{'st.save' | translate}}</button>
+    <button class="btn btn-primary" ng-click="cancel()">{{'st.cancel' | translate}}</button>
+</div>

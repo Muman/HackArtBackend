@@ -1,0 +1,31 @@
+<div>
+        <div class="panel panel-default col-md-5">
+            <div class="panel-heading">
+                {{'st.summary.testNumber' | translate}}
+            </div>
+            <div class="panel-body huge">
+                {{testNumber}}
+            </div>
+        </div>
+    <div class="panel panel-default col-md-5 col-md-offset-2">
+        <div class="panel-heading">
+            {{'st.summary.successTestNumber' | translate}}
+        </div>
+        <div class="panel-body huge">
+            {{successSolved}}
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-stripped">
+    <tr class="header">
+        <th>{{'st.summary.testName' | translate}}</th>
+        <th>{{'st.summary.testDate' | translate}}</th>
+        <th>{{'st.summary.degree' | translate}}</th>
+    </tr>
+    <tr ng-repeat="s in summary" ng-click="showTestDescription(s.quiz)" ng-class="{'selected': s.quiz.selected}">
+        <td>{{s.quiz.name}}</td>
+        <td>{{s.createDate | date: 'dd-MM-yyyy HH:mm'}}</td>
+        <td>{{s.degree}}</td>
+    </tr>
+</table>

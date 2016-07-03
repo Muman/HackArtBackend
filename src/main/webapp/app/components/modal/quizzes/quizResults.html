@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h1>Results for group users in quizs</h1>
+</div>
+<div class="modal-body groupModal">
+    <table class="table table-bordered table-stripped">
+        <tr>
+            <th>Students / Tests</th>
+            <th ng-repeat="t in header">{{t.name}}</th>
+        </tr>
+        <tr ng-repeat="r in results">
+            <td>{{r.user.firstName}} {{r.user.lastName}}</td>
+            <td ng-repeat="d in r.degree track by $index">{{d.degree }}</td>
+        </tr>
+
+    </table>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="close()">{{'st.cancel' | translate}}</button>
+</div>

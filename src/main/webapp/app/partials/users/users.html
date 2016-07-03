@@ -1,0 +1,43 @@
+<div>
+    <h3>{{'st.userManaging' | translate}}</h3>
+    <div class="btn-add">
+        <button class="btn btn-default" ng-click="addUser(undefined)">{{'st.addUser' | translate}}</button>
+    </div>
+    <br>
+    <br>
+    <filter-table search-params="searchParams" class="row"></filter-table>
+
+    <table class="table table-bordered table-stripped">
+        <tr class="header">
+            <th>{{'st.firstName' | translate}}</th>
+            <th>{{'st.lastName' | translate}}</th>
+            <th>{{'st.login' | translate}}</th>
+            <th>{{'st.role' | translate}}</th>
+            <th>{{'st.actions' |    translate}}</th>
+        </tr>
+        <tr ng-repeat="user in users">
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.login}}</td>
+            <td>{{user.role.name | typeName: userRoles}}</td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        {{'st.actions' | translate}}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="" ng-click="addUser(user)">{{'st.edit' | translate}}</a></li>
+                        <li><a href="" ng-click="remove(user)">{{'st.remove' | translate}}</a></li>
+                        <li><a href="" ng-click="resetPassword(user)">{{'st.resetPassword' | translate}}</a></li>
+                        <li><a href="" ng-click="showStatistic(user)">{{'st.showTestStatistic' | translate}}</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        <tr ng-show="!users.length">
+            <td colspan="6" class="cell_center no-result">{{'st.noResults' | translate}}</td>
+        </tr>
+    </table>
+</div>

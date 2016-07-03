@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ng-app="stApp">
+<head>
+    <base ui-sref="/">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="app/libs/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
+    <link rel="stylesheet" href="app/libs/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="app/libs/angular-xeditable/dist/css/xeditable.css">
+    <link rel="stylesheet" href="app/css/custom.css">
+</head>
+<body ng-controller="IndexCtrl" ng-cloak>
+<div>
+    <div class="alert-container">
+        <uib-alert class="alert-frame" ng-repeat="alert in alertList"
+                   type="{{alert.type}}" close="alertService.closeAlert($index)">{{alert.msg}} {{alert.type}}
+        </uib-alert>
+    </div>
+    <nav class="navbar" id="header">
+        <div class="navbar-header navbar-brand">
+            Museum quiz
+        </div>
+        <ul class="nav navbar-nav">
+                <li><a ui-sref="main">{{'st.main' | translate}}</a></li>
+            <li><a ui-sref="quiz">{{'st.quiz' | translate }}</a></li>
+            <li><a ui-sref="users">{{'st.users' | translate}}</a></li>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right navbar-user">
+            <li><a ui-sref="#" ng-click="logout()">{{'st.logout' | translate}}</a></li>
+        </ul>
+    </nav>
+    <div class="view" ui-view></div>
+</div>
+<script src="app/libs/jquery/dist/jquery.js"></script>
+<script src="app/libs/node_modules/angular/angular.js"></script>
+<script src="app/libs/angular-resource/angular-resource.js"></script>
+<script src="app/libs/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="app/libs/bootstrap/js/dropdown.js"></script>
+<script src="app/libs/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+<script src="app/libs/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+<script src="app/libs/node_modules/underscore/underscore.js"></script>
+<script src="app/libs/node_modules/angular-translate/dist/angular-translate.js"></script>
+<script src="app/libs/node_modules/angular-translate-loader-url/angular-translate-loader-url.js"></script>
+
+<script src="app/components/services/modules.js"></script>
+<script src="app/components/services/userSrv.js"></script>
+<script src="app/components/services/questionSrv.js"></script>
+<script src="app/components/services/paginationSrv.js"></script>
+<script src="app/components/services/answerSrv.js"></script>
+<script src="app/components/services/quizSrv.js"></script>
+
+<script src="app/components/modal/modules.js"></script>
+<script src="app/components/modal/answerModal.js"></script>
+<script src="app/components/modal/questionPreview.js"></script>
+<script src="app/components/modal/questionAnswerModal.js"></script>
+<script src="app/components/modal/quizzes/quizAssigningModal.js"></script>
+<script src="app/components/modal/quizzes/quizPreview.js"></script>
+<script src="app/components/modal/quizzes/quizResults.js"></script>
+<script src="app/components/modal/users/addEditUser.js"></script>
+<script src="app/components/modal/common/confirmModal.js"></script>
+
+
+<script src="app/components/filter/modules.js"></script>
+<script src="app/components/filter/typeName.js"></script>
+
+<script src="app/components/common/modules.js"></script>
+<script src="app/components/common/alert.js"></script>
+<script src="app/components/common/tableCriteria.js"></script>
+<script src="app/components/common/Event.js"></script>
+
+<script src="app/components/directive/modules.js"></script>
+<script src="app/components/directive/pagination/paginationDctv.js"></script>
+<script src="app/components/directive/filter/filterTable.js"></script>
+
+<script src="app/partials/modules.js"></script>
+<script src="app/partials/question/question.js"></script>
+<script src="app/partials/main/main.js"></script>
+<script src="app/partials/users/users.js"></script>
+<script src="app/partials/quiz/quiz.js"></script>
+
+<script src="app/app.js"></script>
+</body>
+
+</html>

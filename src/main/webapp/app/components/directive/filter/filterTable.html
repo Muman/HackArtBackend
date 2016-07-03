@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <div class="col-md-1"><label for="searchParam">{{'st.searchParam' | translate}}</label></div>
+            <div class="col-md-2">
+                <select id="searchParam" ng-options="r for r in $ctrl.searchParams" class="form-control col-md-3"
+                        ng-model="searchParam">
+                </select>
+            </div>
+            <div class="col-md-1"><label for="searchValue">{{'st.searchValue' | translate}}</label></div>
+            <div class="col-md-2">
+                <input type="text" id="searchValue" ng-model="searchValue" class="form-control"/>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-default" ng-click="search()">{{'st.common.search' | translate}}
+                </button>
+                <button class="btn btn-default" ng-click="clean()">{{'st.common.clean' | translate}}</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

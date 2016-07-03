@@ -1,0 +1,42 @@
+<div>
+    <div class="btn-add">
+        <button class="btn btn-default" ng-click="addUserGroup()">{{'st.addUserGroup' | translate}}</button>
+    </div>
+    <table class="table table-bordered table-stripped">
+        <tr class="header">
+            <th>{{'st.groupName' | translate}}</th>
+            <th>{{'st.creator' | translate}}</th>
+            <th>{{'st.createDate' | translate}}</th>
+            <th>{{'st.users' | translate}}</th>
+            <th>{{'st.quizs' | translate}}</th>
+            <th>{{'st.actions' | translate}}</th>
+        </tr>
+        <tr ng-repeat="group in groups">
+            <td>{{group.groupName}}</td>
+            <td>{{group.creator.firstName}} {{groupName.creator.lastName}}</td>
+            <td>{{group.createDate | date : 'yyyy-MM-dd'}}</td>
+            <td>
+                <p ng-repeat="user in group.users">{{user.firstName}} {{user.lastName}}</p>
+            </td>
+            <td>
+                <p ng-repeat="quiz in group.quizs">{{quiz.name}}
+            </td>
+            <td>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        {{'st.actions' | translate}}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="" ng-click="editGroup(group)">{{'st.editGroup' | translate}}</a></li>
+                        <li><a href="" ng-click="assignTests(group)">{{'st.assignTests' | translate}}</a></li>
+                        <li ng-show="group.quizs.length && group.users.length">
+                            <a href="" ng-click="showResults(group)">{{'st.groupResults' | translate}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
